@@ -1,2 +1,1 @@
-# Pda.jl
-Particle data analysis.
+# Pda
