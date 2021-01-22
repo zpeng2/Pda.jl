@@ -27,7 +27,7 @@ function polar1d(y::AbstractVector, theta::AbstractVector, grid::AbstractVector;
         for (position, angle) in zip(y, theta)
             if grid[i] <=position <grid[i+1]
                 n[i] += 1; m[i] += sin(angle);
-                if angle<pi:
+                if angle<pi
                     np[i] += 1; mp[i] += sin(angle);
                 end
             end
@@ -37,7 +37,7 @@ function polar1d(y::AbstractVector, theta::AbstractVector, grid::AbstractVector;
     ind=findall(y->y==grid[end], y)
     for angle in y[ind]
         m[end] += sin(angle);
-        if angle<pi:
+        if angle<pi
             np[i] += 1; mp[i] += sin(angle);
         end
     end
