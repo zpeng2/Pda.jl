@@ -59,13 +59,13 @@ end
 
 
 """
-    polar1d(y::AbstractVector, theta::AbstractVector, ymin::Real, ymax::Real; bins::Int=100)
+    polar1d(y::AbstractVector, theta::AbstractVector, ymin::Real, ymax::Real; bins::Int=100, normalize::Bool=true)
 Compute polar order across channel. Normalized such that int n dy =1.
 """
 function polar1d(y::AbstractVector, theta::AbstractVector, ymin::Real, ymax::Real; bins::Int=100, normalize::Bool=true)
     ymin < ymax ||throw(ArgumentError("ymin>=ymax"))
     grid = LinRange(ymin, ymax, bins+1)
-    return polar1d(y, grid, normalize=normalize)
+    return polar1d(y, theta, grid, normalize=normalize)
 end
 
 
@@ -76,5 +76,5 @@ Compute polar order across channel.
 function polar1d(y::AbstractVector, theta::AbstractVector; bins::Int=100, normalize::Bool=true)
     ymin = minimum(y)
     ymax = maximum(y)
-    return polar1d(y, ymin, ymax, bins=bins, normalize=normalize)
+    return polar1d(y, theta, ymin, ymax, bins=bins, normalize=normalize)
 end
