@@ -3,13 +3,13 @@ Get an attribute from H5 file.
 """
 function get_h5attr(f::AbstractString, attr::AbstractString)
     HDF5.h5open(f, "r") do h5io
-        return HDF5.attrs(h5io)[attr] |> read
+        return HDF5.attributes(h5io)[attr] |> read
     end
 end
 
 
 function get_h5attr(f::AbstractString, symbol::Symbol)
-    return get_attr(f, String(symbol))
+    return get_h5attr(f, String(symbol))
 end
 
 """get_h5data(f::AbstractString, path::AbstractString)
