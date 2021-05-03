@@ -1,16 +1,3 @@
-# abstract type AbstractDensity end
-
-
-# struct LineDensity{T} <: AbstractDensity
-#     x::Vector{T}
-#     N::Int
-#     bins::Int
-#     function LineDensity(x::Vector{<:Real}; bins::Int=100)
-#         T = eltype(x)
-#         N = length(x)
-#         return new{T}(x, N, bins)
-#     end
-# end
 
 """
     density1d(x::AbstractVector, grid::AbstractVector; normalize::Bool=True)
